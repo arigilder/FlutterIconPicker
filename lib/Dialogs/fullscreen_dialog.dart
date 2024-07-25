@@ -20,6 +20,7 @@ class FIPFullScreenDialog extends StatelessWidget {
     required this.searchClearIcon,
     required this.searchComparator,
     required this.searchHintText,
+    this.searchTextStyle,
     required this.iconColor,
     required this.noResultsText,
     required this.iconSize,
@@ -38,6 +39,7 @@ class FIPFullScreenDialog extends StatelessWidget {
   final Icon? searchClearIcon;
   final SearchComparator? searchComparator;
   final String? searchHintText;
+  final TextStyle? searchTextStyle;
   final Color? iconColor;
   final String? noResultsText;
   final double? iconSize;
@@ -97,6 +99,7 @@ class FIPFullScreenDialog extends StatelessWidget {
                   searchHintText: searchHintText,
                   backgroundColor: backgroundColor,
                   searchComparator: searchComparator,
+                  textStyle: searchTextStyle,
                 ),
               Expanded(
                 child: FIPIconPicker(

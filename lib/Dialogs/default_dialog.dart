@@ -31,6 +31,7 @@ class FIPDefaultDialog extends StatelessWidget {
     this.searchHintText,
     this.searchClearIcon,
     this.searchComparator,
+    this.searchTextStyle,
     this.noResultsText,
     this.iconPackMode,
     this.customIconPack,
@@ -54,6 +55,7 @@ class FIPDefaultDialog extends StatelessWidget {
   final Icon? searchIcon;
   final String? searchHintText;
   final Icon? searchClearIcon;
+  final TextStyle? searchTextStyle;
   final SearchComparator? searchComparator;
   final String? noResultsText;
   final List<IconPack>? iconPackMode;
@@ -83,6 +85,7 @@ class FIPDefaultDialog extends StatelessWidget {
               mainAxisSpacing: mainAxisSpacing,
               crossAxisSpacing: crossAxisSpacing,
               searchComparator: searchComparator,
+              searchTextStyle: searchTextStyle,
             );
           }
           return AdaptiveDialog(
@@ -187,6 +190,7 @@ class FIPDefaultDialog extends StatelessWidget {
                       searchHintText: searchHintText,
                       backgroundColor: backgroundColor,
                       searchComparator: searchComparator,
+                      textStyle: searchTextStyle,
                     ),
                   Expanded(
                     child: FIPIconPicker(

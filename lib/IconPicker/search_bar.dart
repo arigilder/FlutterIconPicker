@@ -15,6 +15,7 @@ class FIPSearchBar extends StatefulWidget {
   FIPSearchBar({
     required this.iconController,
     required this.iconPack,
+    this.textStyle,
     required this.searchHintText,
     required this.searchIcon,
     required this.searchClearIcon,
@@ -27,6 +28,7 @@ class FIPSearchBar extends StatefulWidget {
   final FIPIconController iconController;
   final List<IconPack>? iconPack;
   final Map<String, IconData>? customIconPack;
+  final TextStyle? textStyle;
   final String? searchHintText;
   final Icon? searchIcon;
   final Icon? searchClearIcon;
@@ -80,14 +82,14 @@ class _FIPSearchBarState extends State<FIPSearchBar> {
       return TextField(
         onChanged: (val) => _search(val),
         controller: controller.searchTextController,
-        style: TextStyle(
+        style: (widget.textStyle ?? TextStyle()).copyWith(
           color: FIPColorBrightness(widget.backgroundColor!).isLight()
               ? Colors.black
               : Colors.white,
         ),
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.only(top: 15),
-          hintStyle: TextStyle(
+          hintStyle: (widget.textStyle ?? TextStyle()).copyWith(
             color: FIPColorBrightness(widget.backgroundColor!).isLight()
                 ? Colors.black54
                 : Colors.white54,

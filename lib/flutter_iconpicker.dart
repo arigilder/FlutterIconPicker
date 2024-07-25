@@ -102,6 +102,10 @@ Future<IconData?> showIconPicker(
   /// Default: `Search`
   String searchHintText = 'Search',
 
+  /// The style of the text in the search bar.
+  /// Default: null
+  TextStyle? searchTextStyle,
+
   /// The suffix icon after the search textfield
   /// Defaults to:
   /// ```dart
@@ -179,6 +183,7 @@ Future<IconData?> showIconPicker(
           iconPackMode: iconPackModes,
           customIconPack: customIconPack,
           searchComparator: searchComparator,
+          searchTextStyle: searchTextStyle,
         ),
       );
     } else {
@@ -209,6 +214,7 @@ Future<IconData?> showIconPicker(
             iconPackMode: iconPackModes,
             customIconPack: customIconPack,
             searchComparator: searchComparator,
+            searchTextStyle: searchTextStyle,
           ),
         ),
       );
@@ -238,6 +244,7 @@ Future<IconData?> showIconPicker(
         iconPackMode: iconPackModes,
         customIconPack: customIconPack,
         searchComparator: searchComparator,
+        searchTextStyle: searchTextStyle,
       ),
     );
   }
