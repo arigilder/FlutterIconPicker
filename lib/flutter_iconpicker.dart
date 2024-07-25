@@ -134,6 +134,10 @@ Future<IconData?> showIconPicker(
   /// Provide here your custom IconPack in a [Map<String, IconData>]
   /// to show your own collection of Icons to pick from
   Map<String, IconData>? customIconPack,
+
+  /// A filter function that returns true if an icon should be filtered out
+  /// from the icon packs, based on the icon name.
+  bool Function(String)? iconFilterFunction,
 }) async {
   if (iconColor == null) iconColor = Theme.of(context).iconTheme.color;
   if (constraints == null) {
@@ -154,7 +158,7 @@ Future<IconData?> showIconPicker(
 
   IconData? iconPicked;
 
-  final controller = FIPIconController();
+  final controller = FIPIconController(iconFilterFunction: iconFilterFunction);
 
   if (adaptiveDialog) {
     if (MediaQuery.of(context).size.width >= constraints.maxWidth) {

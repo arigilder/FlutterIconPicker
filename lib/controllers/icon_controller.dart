@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class FIPIconController with ChangeNotifier {
-  FIPIconController();
+  FIPIconController({this.iconFilterFunction});
 
   Map<String, IconData> _icons = {};
+
+  bool Function(String)? iconFilterFunction;
 
   Map<String, IconData> get icons => _icons;
 
@@ -26,7 +28,12 @@ class FIPIconController with ChangeNotifier {
   get entries => _icons.entries;
 
   void addAll(Map<String, IconData> pack) {
-    _icons.addAll(pack);
+    if (iconFilterFunction != null) {
+      _icons.addEntries(
+          pack.entries.where((entry) => !iconFilterFunction!(entry.key)));
+    } else {
+      _icons.addAll(pack);
+    }
     notifyListeners();
   }
 
