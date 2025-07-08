@@ -17,7 +17,7 @@ dependencies:
   path: ^1.9.0
   provider: ^6.1.2
   args: ^2.5.0
-  dcli: ^7.0.3
+  dcli: ^6.0.5
 
 flutter:
   uses-material-design: true
